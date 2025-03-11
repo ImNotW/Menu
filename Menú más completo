@@ -1,0 +1,174 @@
+package service;
+
+import java.util.Scanner;
+
+import Models.Usuario;
+
+public class menu {
+
+	public static void main(String[] args) {
+		  /// INICIALIZACIÓN DEL SCANNER
+        Scanner scanner = new Scanner(System.in);
+        boolean again = true;  /// Variable para que se repita si no es correcta la opción
+        
+        
+        while (again == true) {
+
+            // VARIABLES
+            int opc = 0;
+            String nombre = "";
+            int edad = 0;
+            double peso = 0;
+            double altura = 0;
+            int desea = 0;
+            int datoelegir = 0;
+            String medicamento = "";
+            int tiempomedica = 0;
+            int buscar = 0;
+
+            /// MENÚ PRINCIPAL
+            System.out.println("-----------------------Menú principal------------------------");
+            System.out.println("1=Ingresar datos 2=Editar datos 3=Medicamentos 4=Buscar datos");
+            opc = scanner.nextInt();
+
+            switch (opc) {
+
+                case 1: {
+                	Usuario usuario = new Usuario();
+                    System.out.println("Ingrese su nombre"); /// AQUÍ SE VAN A INGRESAR LOS DATOS
+                    nombre = scanner.next();
+                    usuario.setNombre(nombre);
+                    System.out.println("Ingrese su edad");
+                    edad = scanner.nextInt();
+                    usuario.setEdad(edad);
+                    System.out.println("Ingrese su peso");
+                    peso = scanner.nextInt();
+                    usuario.setPeso(peso);
+                    System.out.println("Ingrese su altura");
+                    altura = scanner.nextInt();
+                    usuario.setAltura(altura);
+                    break; 
+                }
+                case 2: {
+                	Usuario usuario = new Usuario();
+                    System.out.println("¿Desea eliminar o editar los datos?"); /// AQUÍ SE VAN A EDITAR O ELIMINAR
+                    System.out.println("1-Editar 2-Eliminar");
+                    desea = scanner.nextInt();
+                    if (desea == 1) {
+                        System.out.println("¿Que dato desea editar?");
+                        System.out.println("1 = Nombre: " + nombre);     //// AQUÍ SE EDITAN O ELIMINAN
+                        System.out.println("2 = Edad: " + edad);
+                        System.out.println("3 = Peso: " + peso);
+                        System.out.println("4 = Altura: " + altura);
+                        System.out.println("5 = Medicamento: " + medicamento);
+                        datoelegir = scanner.nextInt();
+
+                        switch (datoelegir) {
+
+                            case 1: {
+                                System.out.println("Ingrese el nuevo dato a tener");
+                                nombre = scanner.next();
+                                usuario.setNombre(nombre);
+                                System.out.println("Se ha cambiado correctamente el dato");
+                                
+                                break; 
+                            }
+                            case 2: {
+                                System.out.println("Ingrese el nuevo dato a tener");
+                                edad = scanner.nextInt();
+                                usuario.setEdad(edad);
+                                System.out.println("Se ha cambiado correctamente el dato");
+                                break;
+                            }
+                            case 3: {
+                                System.out.println("Ingrese el nuevo dato a tener");
+                                peso = scanner.nextInt();
+                                usuario.setPeso(peso);
+                                System.out.println("Se ha cambiado correctamente el dato");
+                                break;
+                            }
+                            case 4: {
+                                System.out.println("Ingrese el nuevo dato a tener");
+                                altura = scanner.nextInt();
+                                usuario.setAltura(altura);
+                                System.out.println("Se ha cambiado correctamente el dato");
+                                break;
+                            }
+                            case 5: {
+                     
+                                System.out.println("Ingrese el nuevo dato a tener");
+                                medicamento = scanner.next();
+                                
+                                System.out.println("Se ha cambiado correctamente el dato");
+                                break;
+                            }
+                        }
+
+                    } else {
+                        System.out.println("¿Que dato desea eliminar?");
+                        System.out.println("1 = Nombre: " + nombre);
+                        System.out.println("2 = Edad: " + edad);
+                        System.out.println("3 = Peso: " + peso);
+                        System.out.println("4 = Altura: " + altura);
+                        System.out.println("5 = Medicamento: " + medicamento);
+                        datoelegir = scanner.nextInt();
+
+                        switch (datoelegir) {
+
+                            case 1: {
+                                nombre = "";
+                                System.out.println("Se ha borrado correctamente el dato");
+                                break; 
+                            }
+                            case 2: {
+                                edad = 0;
+                                System.out.println("Se ha borrado correctamente el dato");
+                                break;
+                            }
+                            case 3: {
+                                peso = 0;
+                                System.out.println("Se ha borrado correctamente el dato");
+                                break;
+                            }
+                            case 4: {
+                                altura = 0;
+                                System.out.println("Se ha borrado correctamente el dato");
+                                break;
+                            }
+                            case 5: {
+                                medicamento = "";
+                                System.out.println("Se ha borrado correctamente el dato");
+                                break;
+                            }
+                        }
+                    }
+
+                    break;
+                }
+                case 3: {
+                    System.out.println("Ingrese el nombre del medicamento");  //// APARTADO PARA LOS MEDICAMENTOS
+                    medicamento = scanner.next();
+                    System.out.println("Ingrese cada cuántas horas tienes que tomar el medicamento");
+                    tiempomedica = scanner.nextInt();
+                    break;
+                }
+                case 4: {
+                    System.out.println("¿Que deseas buscar?");    /// APARTADO PARA LA BÚSQUEDA
+                    System.out.println("1 = Nombre");
+                    System.out.println("2 = Edad");
+                    System.out.println("3 = Peso");
+                    System.out.println("4 = Altura");
+                    System.out.println("5 = Medicamento");
+                    buscar = scanner.nextInt();
+                    break;
+                }
+                default: {
+                    System.out.println("Ingrese una opción disponible");  /// SI NO ES NINGUNA OPCIÓN DISPONIBLE
+                    
+                }
+            }
+        }
+    }
+	}
+
+
